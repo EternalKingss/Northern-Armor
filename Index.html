@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Northern Armor — premium motorcycle protection engineered for harsh northern conditions. ECE 22.06 certified helmets, jackets, gloves, and accessories." />
+  <meta name="theme-color" content="#0B0B0C" />
+  <title>Northern Armor — Conquer the North. Ride Protected.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--na-black:#0B0B0C;--na-off:#F7F7F8;--na-red:#D62D2D;--na-gray:#6B7280}
+    html,body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+    .font-accent{font-family:"Playfair Display",ui-serif,Georgia,serif}
+    .na-container{max-width:1200px}
+    .shadow-sticky{box-shadow:0 8px 20px rgba(0,0,0,.06)}
+    @media (prefers-reduced-motion: no-preference){
+      .fade-in{animation:fade .6s ease both}
+      .rise{animation:rise .6s ease both}
+      .hover-raise:hover{transform:translateY(-4px)}
+      .hover-raise{transition:transform .2s ease, box-shadow .2s ease}
+    }
+    @keyframes fade{from{opacity:0}to{opacity:1}}
+    @keyframes rise{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}
+  </style>
+</head>
+<body class="bg-[var(--na-off)] text-[var(--na-black)] antialiased selection:bg-[var(--na-red)]/20 selection:text-[var(--na-black)]">
+
+  <!-- Announcement Bar -->
+  <div id="announce" class="w-full bg-[var(--na-red)] text-white text-sm">
+    <div class="mx-auto na-container px-4 py-2 flex items-center justify-between">
+      <p>Free shipping over $150 in Canada.</p>
+      <button id="dismissAnnounce" class="rounded-full px-2 py-1 outline-none focus-visible:ring-2 focus-visible:ring-white/70" aria-label="Dismiss announcement">✕</button>
+    </div>
+  </div>
+
+  <!-- Header / Nav -->
+  <header id="siteHeader" class="sticky top-0 z-50 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/70">
+    <div class="mx-auto na-container px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="#" class="flex items-center gap-2">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path fill="var(--na-red)" d="M12 2l2.2 4.7 5.2.7-3.8 3.7.9 5.2L12 14.8 7.5 16.3l.9-5.2L4.6 7.4l5.2-.7L12 2z"/></svg>
+          <span class="font-extrabold tracking-tight text-lg">NORTHERN ARMOR</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#helmets" class="font-medium hover:text-[var(--na-red)]">Helmets</a>
+          <a href="#jackets" class="font-medium hover:text-[var(--na-red)]">Jackets</a>
+          <a href="#gloves" class="font-medium hover:text-[var(--na-red)]">Gloves</a>
+          <a href="#accessories" class="font-medium hover:text-[var(--na-red)]">Accessories</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <button aria-label="Search" class="p-2 rounded-full hover:bg-black/5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-3.5-3.5"/></svg>
+          </button>
+          <a href="#dealers" class="hidden sm:inline-flex items-center rounded-full border border-black/10 px-3 py-1.5 text-sm font-medium hover:bg-black/5">Find a Dealer</a>
+          <button id="cartBtn" class="relative p-2 rounded-full hover:bg-black/5" aria-label="Cart">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 12.39h8.72l2-1.61L23 6H6"/></svg>
+            <span id="cartCount" class="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] rounded-full bg-[var(--na-red)] text-[10px] text-white grid place-items-center px-1">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-white">
+    <div class="mx-auto na-container px-4 py-14 md:py-20 grid md:grid-cols-2 items-center gap-10">
+      <div class="max-w-xl fade-in">
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Conquer the North.<span class="block">Ride Protected.</span></h1>
+        <p class="mt-4 text-lg text-[var(--na-gray)]">Ultimate protection for riders facing tough northern conditions—engineered for durability, comfort, and performance.</p>
+        <div class="mt-8 flex items-center gap-3">
+          <a href="#helmets" class="inline-flex items-center justify-center rounded-full bg-[var(--na-red)] px-5 py-3 text-white font-semibold">Shop Helmets</a>
+          <a href="#all-gear" class="inline-flex items-center justify-center rounded-full border border-black/10 px-5 py-3 font-semibold">View All Gear</a>
+        </div>
+      </div>
+      <div class="relative aspect-[4/3] md:aspect-[5/4] rounded-2xl overflow-hidden shadow-xl rise">
+        <div class="absolute inset-0 bg-[radial-gradient(120%_100%_at_70%_30%,rgba(214,45,45,0.35),transparent_45%),linear-gradient(135deg,#0B0B0C,rgba(11,11,12,0.85))]"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Row -->
+  <section class="bg-white border-y border-black/5">
+    <div class="mx-auto na-container px-4 py-8 grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+      <div><p class="font-semibold">Engineered in Canada</p></div>
+      <div><p class="font-semibold">ECE 22.06 Certified</p></div>
+      <div><p class="font-semibold">Impact-tested</p></div>
+      <div><p class="font-semibold">5-Year Warranty</p></div>
+    </div>
+  </section>
+
+  <!-- Featured Helmets -->
+  <section id="helmets" class="bg-[var(--na-off)]">
+    <div class="mx-auto na-container px-4 py-14">
+      <h2 class="text-3xl font-extrabold">Featured Helmets</h2>
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-black/5">
+          <h3 class="font-semibold">Glacier Pro ECE 22.06</h3>
+          <p class="text-[var(--na-gray)]">$399</p>
+        </div>
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-black/5">
+          <h3 class="font-semibold">Aurora Carbon</h3>
+          <p class="text-[var(--na-gray)]">$699</p>
+        </div>
+        <div class="bg-white rounded-2xl p-4 shadow-sm border border-black/5">
+          <h3 class="font-semibold">Redline Modular</h3>
+          <p class="text-[var(--na-gray)]">$499</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-black/5">
+    <div class="mx-auto na-container px-4 py-14 grid md:grid-cols-3 gap-10">
+      <div>
+        <h3 class="font-semibold">Support</h3>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li><a href="#">Warranty</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Sizing</a></li>
+          <li><a href="#">Dealers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-black/5">
+      <div class="mx-auto na-container px-4 py-6 text-sm text-[var(--na-gray)] flex items-center justify-between">
+        <span>© <span id="year"></span> Northern Armor. All rights reserved.</span>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
