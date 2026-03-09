@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Athletics | Northern Armor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script src="../js/main.js" defer></script>
+  </head>
+  <body class="bg-slate-950 text-slate-100 tracking-wide">
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
+        <a href="../index.html" class="font-semibold uppercase text-sm sm:text-base tracking-[0.24em]">Northern Armor</a>
+        <button class="md:hidden" onclick="toggleMenu()" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+        <nav id="mobile-nav" class="hidden md:flex items-center gap-7 text-xs uppercase tracking-[0.24em]">
+          <a href="../index.html#divisions" class="hover:text-blue-400 linear-motion duration-200">Divisions</a>
+          <a href="../index.html#philosophy" class="hover:text-blue-400 linear-motion duration-200">Philosophy</a>
+          <a href="../index.html#contact" class="hover:text-blue-400 linear-motion duration-200">Contact</a>
+          <a href="#" class="border border-blue-500/70 text-blue-300 px-4 py-2 hover:bg-blue-600 hover:text-white linear-motion duration-200">Login</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="division-hero flex items-end" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80')">
+        <div class="division-hero-content w-full max-w-7xl mx-auto px-6 lg:px-10 py-20">
+          <p class="text-xs uppercase tracking-[0.24em] text-blue-400">Division 01</p>
+          <h1 class="mt-3 text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-[0.12em]">Athletics</h1>
+          <p class="mt-4 max-w-xl text-slate-300 leading-relaxed">High-contrast training systems built for resilience and measurable progression.</p>
+        </div>
+      </section>
+
+      <section class="max-w-7xl mx-auto px-6 lg:px-10 py-28 lg:py-36">
+        <div class="grid md:grid-cols-2 gap-16 items-start">
+          <div class="space-y-6">
+            <h2 class="text-2xl md:text-3xl font-bold uppercase tracking-[0.12em]">The Forge</h2>
+            <p class="text-slate-300 leading-relaxed">
+              Northern Armor Athletics is built on the principle that strength is infrastructure. Our training systems
+              are designed for operators who demand measurable results and refuse to plateau.
+            </p>
+            <p class="text-slate-300 leading-relaxed">
+              From resistance programming to endurance protocols, every system is stress-tested and field-proven.
+            </p>
+            <a href="https://neurojarvis.cc/#" class="inline-block text-xs uppercase tracking-[0.18em] border border-blue-500/70 text-blue-300 px-6 py-3 hover:bg-blue-600 hover:text-white linear-motion duration-200">Enter The Forge</a>
+          </div>
+          <div class="space-y-6">
+            <div class="division-card rounded-2xl p-8 bg-slate-900/70">
+              <h3 class="text-lg uppercase tracking-[0.14em] font-semibold">Strength Systems</h3>
+              <p class="mt-3 text-slate-300 text-sm">Progressive overload programming with built-in periodization and recovery tracking.</p>
+            </div>
+            <div class="division-card rounded-2xl p-8 bg-slate-900/70">
+              <h3 class="text-lg uppercase tracking-[0.14em] font-semibold">Endurance Protocols</h3>
+              <p class="mt-3 text-slate-300 text-sm">Cardiovascular conditioning frameworks calibrated for peak output and sustained performance.</p>
+            </div>
+            <div class="division-card rounded-2xl p-8 bg-slate-900/70">
+              <h3 class="text-lg uppercase tracking-[0.14em] font-semibold">Recovery Ops</h3>
+              <p class="mt-3 text-slate-300 text-sm">Data-driven recovery systems to minimize downtime and maximize training density.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="border-t border-slate-800 py-10">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 grid gap-8 md:grid-cols-3 items-center text-sm">
+        <div class="flex items-center gap-3 text-slate-300">
+          <span class="text-lg">🛡️</span>
+          <p>© 2026 Northern Armor. All Rights Reserved.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-4 md:justify-center text-slate-300">
+          <a href="#" class="hover:text-blue-300 linear-motion duration-200">Privacy Policy</a>
+          <a href="#" class="hover:text-blue-300 linear-motion duration-200">Terms of Service</a>
+          <a href="#" class="hover:text-blue-300 linear-motion duration-200">Support</a>
+        </div>
+        <div class="flex items-center gap-4 md:justify-end text-slate-300">
+          <a href="#" class="hover:text-blue-300 linear-motion duration-200">YouTube</a>
+          <a href="#" class="hover:text-blue-300 linear-motion duration-200">Instagram</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

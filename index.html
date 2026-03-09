@@ -6,73 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Northern Armor | Command Center</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      :root {
-        --tactical-blue: #1f6feb;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-
-      .linear-motion {
-        transition-timing-function: linear;
-      }
-
-      .hero-overlay {
-        background: radial-gradient(circle at center, rgba(15, 23, 42, 0.32), rgba(2, 6, 23, 0.88));
-      }
-
-      .apex-glow {
-        text-shadow: 0 0 18px rgba(31, 111, 235, 0.55), 0 0 40px rgba(31, 111, 235, 0.3);
-        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 0 35px rgba(31, 111, 235, 0.26);
-      }
-
-      .division-card {
-        border: 1px solid rgba(148, 163, 184, 0.25);
-        transition: border-color 0.2s linear, box-shadow 0.2s linear, transform 0.2s linear;
-      }
-
-      .division-card:hover {
-        border-color: rgba(31, 111, 235, 0.75);
-        box-shadow: 0 0 22px rgba(31, 111, 235, 0.35);
-        transform: translateY(-4px);
-      }
-
-      .world-map {
-        background-image: radial-gradient(circle at 10% 40%, rgba(148, 163, 184, 0.12) 0 17%, transparent 19%),
-          radial-gradient(circle at 27% 30%, rgba(148, 163, 184, 0.12) 0 15%, transparent 17%),
-          radial-gradient(circle at 42% 58%, rgba(148, 163, 184, 0.12) 0 18%, transparent 20%),
-          radial-gradient(circle at 62% 38%, rgba(148, 163, 184, 0.12) 0 21%, transparent 23%),
-          radial-gradient(circle at 80% 62%, rgba(148, 163, 184, 0.12) 0 16%, transparent 18%),
-          linear-gradient(120deg, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.95));
-      }
-
-      .node {
-        animation: pulse 2.4s linear infinite;
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          box-shadow: 0 0 0 0 rgba(31, 111, 235, 0.65);
-        }
-        50% {
-          box-shadow: 0 0 0 10px rgba(31, 111, 235, 0);
-        }
-      }
-    </style>
-    <script>
-      function toggleMenu() {
-        const menu = document.getElementById("mobile-nav");
-        menu.classList.toggle("hidden");
-      }
-    </script>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
   </head>
   <body class="bg-slate-950 text-slate-100 tracking-wide">
     <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
@@ -113,38 +48,38 @@
           <h2 class="mt-3 text-3xl md:text-4xl font-bold uppercase tracking-[0.12em]">Division Grid</h2>
         </div>
         <div class="grid gap-6 md:grid-cols-2">
-          <article class="division-card rounded-2xl overflow-hidden bg-slate-900/70">
+          <a href="pages/athletics.html" class="division-card rounded-2xl overflow-hidden bg-slate-900/70 block">
             <div class="h-44 bg-[url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center"></div>
             <div class="p-8 space-y-4">
               <h3 class="text-xl uppercase tracking-[0.14em] font-semibold">Athletics</h3>
               <p class="text-slate-300 text-sm">High-contrast training systems built for resilience and measurable progression.</p>
-              <a href="https://neurojarvis.cc/#" class="inline-block text-xs uppercase tracking-[0.18em] border border-slate-600 px-4 py-2 hover:border-blue-500 hover:text-blue-300 linear-motion duration-200">Enter The Forge</a>
+              <span class="inline-block text-xs uppercase tracking-[0.18em] border border-slate-600 px-4 py-2">Enter The Forge</span>
             </div>
-          </article>
-          <article class="division-card rounded-2xl overflow-hidden bg-slate-900/70">
+          </a>
+          <a href="pages/apparel.html" class="division-card rounded-2xl overflow-hidden bg-slate-900/70 block">
             <div class="h-44 bg-[url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center"></div>
             <div class="p-8 space-y-4">
               <h3 class="text-xl uppercase tracking-[0.14em] font-semibold">Apparel</h3>
               <p class="text-slate-300 text-sm">Tactical silhouettes and engineered fabrics designed for global deployment.</p>
-              <a href="#" class="inline-block text-xs uppercase tracking-[0.18em] border border-slate-600 px-4 py-2 hover:border-blue-500 hover:text-blue-300 linear-motion duration-200">View Collection</a>
+              <span class="inline-block text-xs uppercase tracking-[0.18em] border border-slate-600 px-4 py-2">View Collection</span>
             </div>
-          </article>
-          <article class="division-card rounded-2xl overflow-hidden bg-slate-900/70">
+          </a>
+          <a href="pages/digital.html" class="division-card rounded-2xl overflow-hidden bg-slate-900/70 block">
             <div class="h-44 bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center"></div>
             <div class="p-8 space-y-4">
               <h3 class="text-xl uppercase tracking-[0.14em] font-semibold">Digital</h3>
               <p class="text-slate-300 text-sm">Cyber-native products, data systems, and marketplaces for digital operators.</p>
-              <a href="#" class="inline-block text-xs uppercase tracking-[0.18em] border border-slate-600 px-4 py-2 hover:border-blue-500 hover:text-blue-300 linear-motion duration-200">Access Market</a>
+              <span class="inline-block text-xs uppercase tracking-[0.18em] border border-slate-600 px-4 py-2">Access Market</span>
             </div>
-          </article>
-          <article class="division-card rounded-2xl overflow-hidden bg-slate-900/70">
+          </a>
+          <a href="pages/labs.html" class="division-card rounded-2xl overflow-hidden bg-slate-900/70 block">
             <div class="h-44 bg-[url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center"></div>
             <div class="p-8 space-y-4">
               <h3 class="text-xl uppercase tracking-[0.14em] font-semibold">Labs</h3>
               <p class="text-slate-300 text-sm">Monochrome R&D environments where prototypes evolve into scalable platforms.</p>
-              <a href="#" class="inline-block text-xs uppercase tracking-[0.18em] border border-slate-600 px-4 py-2 hover:border-blue-500 hover:text-blue-300 linear-motion duration-200">Explore R&amp;D</a>
+              <span class="inline-block text-xs uppercase tracking-[0.18em] border border-slate-600 px-4 py-2">Explore R&amp;D</span>
             </div>
-          </article>
+          </a>
         </div>
       </section>
 
