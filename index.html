@@ -4,124 +4,185 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Northern Armor</title>
-    <!-- Tailwind CSS via CDN for utility classes -->
+    <title>Northern Armor | Command Center</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      /* Custom font smoothing for a polished look */
+      :root {
+        --tactical-blue: #1f6feb;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
 
-      /* Animated underline for navigation links */
-      .nav-link {
-        position: relative;
-        overflow: hidden;
-        transition: color 0.3s ease;
+      .linear-motion {
+        transition-timing-function: linear;
       }
 
-      .nav-link::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -2px;
-        width: 100%;
-        height: 2px;
-        background: #dc2626; /* Tailwind red-600 */
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
+      .hero-overlay {
+        background: radial-gradient(circle at center, rgba(15, 23, 42, 0.32), rgba(2, 6, 23, 0.88));
       }
 
-      .nav-link:hover {
-        color: #dc2626;
+      .apex-glow {
+        text-shadow: 0 0 18px rgba(31, 111, 235, 0.55), 0 0 40px rgba(31, 111, 235, 0.3);
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 0 35px rgba(31, 111, 235, 0.26);
       }
 
-      .nav-link:hover::after {
-        transform: translateX(0);
+      .division-card {
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        transition: border-color 0.2s linear, box-shadow 0.2s linear, transform 0.2s linear;
+      }
+
+      .division-card:hover {
+        border-color: rgba(31, 111, 235, 0.75);
+        box-shadow: 0 0 22px rgba(31, 111, 235, 0.35);
+        transform: translateY(-4px);
+      }
+
+      .world-map {
+        background-image: radial-gradient(circle at 10% 40%, rgba(148, 163, 184, 0.12) 0 17%, transparent 19%),
+          radial-gradient(circle at 27% 30%, rgba(148, 163, 184, 0.12) 0 15%, transparent 17%),
+          radial-gradient(circle at 42% 58%, rgba(148, 163, 184, 0.12) 0 18%, transparent 20%),
+          radial-gradient(circle at 62% 38%, rgba(148, 163, 184, 0.12) 0 21%, transparent 23%),
+          radial-gradient(circle at 80% 62%, rgba(148, 163, 184, 0.12) 0 16%, transparent 18%),
+          linear-gradient(120deg, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.95));
+      }
+
+      .node {
+        animation: pulse 2.4s linear infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 rgba(31, 111, 235, 0.65);
+        }
+        50% {
+          box-shadow: 0 0 0 10px rgba(31, 111, 235, 0);
+        }
       }
     </style>
     <script>
-      // Toggle mobile navigation
       function toggleMenu() {
         const menu = document.getElementById("mobile-nav");
         menu.classList.toggle("hidden");
       }
     </script>
   </head>
-  <body
-    class="font-sans relative min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-200"
-  >
-    <!-- Header -->
-    <header
-      class="absolute top-0 left-0 w-full flex items-center justify-center py-6 z-20"
-    >
-      <!-- Logo -->
-      <a href="#" class="flex items-center space-x-2 select-none">
-        <span class="text-2xl leading-none">🍁</span>
-        <span class="text-lg lg:text-xl font-bold tracking-wide">
-          NORTHERN ARMOR
-        </span>
-      </a>
-      <!-- Navigation -->
-      <button
-        class="md:hidden absolute right-6 top-6 focus:outline-none"
-        onclick="toggleMenu()"
-      >
-        <svg
-          class="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"
-          ></path>
-        </svg>
-      </button>
-      <nav
-        id="mobile-nav"
-        class="hidden md:flex md:space-x-6 lg:space-x-8 uppercase text-sm font-medium absolute right-8 lg:right-14 bg-white md:bg-transparent shadow md:shadow-none rounded md:rounded-none p-4 md:p-0"
-      >
-        <a href="#" class="nav-link block md:inline-block">Jacket</a>
-        <a href="#" class="nav-link block md:inline-block">Pants</a>
-        <a href="#" class="nav-link block md:inline-block">Shoes</a>
-        <a href="#" class="nav-link block md:inline-block">Helmet</a>
-        <a href="#" class="nav-link block md:inline-block">Contact</a>
-      </nav>
+  <body class="bg-slate-950 text-slate-100 tracking-wide">
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
+        <a href="#top" class="font-semibold uppercase text-sm sm:text-base tracking-[0.24em]">Northern Armor</a>
+        <button class="md:hidden" onclick="toggleMenu()" aria-label="Toggle menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+        <nav id="mobile-nav" class="hidden md:flex items-center gap-7 text-xs uppercase tracking-[0.24em]">
+          <a href="#divisions" class="hover:text-blue-400 linear-motion duration-200">Divisions</a>
+          <a href="#philosophy" class="hover:text-blue-400 linear-motion duration-200">Philosophy</a>
+          <a href="#contact" class="hover:text-blue-400 linear-motion duration-200">Contact</a>
+          <a href="#" class="border border-blue-500/70 text-blue-300 px-4 py-2 hover:bg-blue-600 hover:text-white linear-motion duration-200">Login</a>
+        </nav>
+      </div>
     </header>
 
-    <!-- Hero Section -->
-    <section
-      class="min-h-screen flex items-center justify-center px-6 md:px-12 pt-24"
-    >
-      <div class="w-full max-w-6xl grid md:grid-cols-2 gap-8 items-center">
-        <div class="text-center md:text-left space-y-6">
-          <h1 class="text-5xl lg:text-6xl font-extrabold">
-            Gear Up for the North
-          </h1>
-          <p class="text-gray-600 text-lg max-w-md mx-auto md:mx-0">
-            Durable outdoor equipment for those who brave the coldest
-            adventures.
+    <main id="top">
+      <section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+        <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80">
+          <source src="https://cdn.coverr.co/videos/coverr-rugged-icelandic-landscape-1579/1080p.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="relative z-10 text-center px-6 max-w-4xl space-y-8">
+          <div class="mx-auto h-24 w-24 sm:h-28 sm:w-28 rounded-2xl border border-slate-300/30 bg-slate-900/70 apex-glow flex items-center justify-center text-4xl">🛡️</div>
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-[0.16em]">Strength. Precision. Infrastructure.</h1>
+          <p class="max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
+            The parent organization for high-performance athletics, tactical apparel, and digital innovation.
           </p>
-          <a
-            href="#"
-            class="inline-block bg-red-600 text-white px-8 py-3 rounded-md shadow hover:bg-red-700 transition"
-            >Shop Now</a
-          >
         </div>
-        <div class="flex items-center justify-center">
-          <img
-            src="./helmet.jpg"
-            alt="Helmet"
-            class="max-w-full object-contain drop-shadow-xl"
-          />
+      </section>
+
+      <section id="divisions" class="max-w-7xl mx-auto px-6 lg:px-10 py-28 lg:py-36">
+        <div class="mb-16 text-center md:text-left">
+          <p class="text-xs uppercase tracking-[0.24em] text-slate-400">Command Structure</p>
+          <h2 class="mt-3 text-3xl md:text-4xl font-bold uppercase tracking-[0.12em]">Division Grid</h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2">
+          <article class="division-card rounded-2xl overflow-hidden bg-slate-900/70">
+            <div class="h-44 bg-[url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center"></div>
+            <div class="p-8 space-y-4">
+              <h3 class="text-xl uppercase tracking-[0.14em] font-semibold">Athletics</h3>
+              <p class="text-slate-300 text-sm">High-contrast training systems built for resilience and measurable progression.</p>
+              <a href="#" class="inline-block text-xs uppercase tracking-[0.18em] border border-slate-600 px-4 py-2 hover:border-blue-500 hover:text-blue-300 linear-motion duration-200">Enter The Forge</a>
+            </div>
+          </article>
+          <article class="division-card rounded-2xl overflow-hidden bg-slate-900/70">
+            <div class="h-44 bg-[url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center"></div>
+            <div class="p-8 space-y-4">
+              <h3 class="text-xl uppercase tracking-[0.14em] font-semibold">Apparel</h3>
+              <p class="text-slate-300 text-sm">Tactical silhouettes and engineered fabrics designed for global deployment.</p>
+              <a href="#" class="inline-block text-xs uppercase tracking-[0.18em] border border-slate-600 px-4 py-2 hover:border-blue-500 hover:text-blue-300 linear-motion duration-200">View Collection</a>
+            </div>
+          </article>
+          <article class="division-card rounded-2xl overflow-hidden bg-slate-900/70">
+            <div class="h-44 bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center"></div>
+            <div class="p-8 space-y-4">
+              <h3 class="text-xl uppercase tracking-[0.14em] font-semibold">Digital</h3>
+              <p class="text-slate-300 text-sm">Cyber-native products, data systems, and marketplaces for digital operators.</p>
+              <a href="#" class="inline-block text-xs uppercase tracking-[0.18em] border border-slate-600 px-4 py-2 hover:border-blue-500 hover:text-blue-300 linear-motion duration-200">Access Market</a>
+            </div>
+          </article>
+          <article class="division-card rounded-2xl overflow-hidden bg-slate-900/70">
+            <div class="h-44 bg-[url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center"></div>
+            <div class="p-8 space-y-4">
+              <h3 class="text-xl uppercase tracking-[0.14em] font-semibold">Labs</h3>
+              <p class="text-slate-300 text-sm">Monochrome R&D environments where prototypes evolve into scalable platforms.</p>
+              <a href="#" class="inline-block text-xs uppercase tracking-[0.18em] border border-slate-600 px-4 py-2 hover:border-blue-500 hover:text-blue-300 linear-motion duration-200">Explore R&amp;D</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="philosophy" class="max-w-7xl mx-auto px-6 lg:px-10 py-28 lg:py-36">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="space-y-6">
+            <p class="text-xs uppercase tracking-[0.24em] text-slate-400">Global Operations</p>
+            <h2 class="text-3xl md:text-4xl font-bold uppercase tracking-[0.12em]">Built In The North. Deployed Worldwide.</h2>
+            <p class="text-slate-300 leading-relaxed">
+              Headquartered in Canada. Shipping globally. Engineering excellence across the Northern hemisphere.
+            </p>
+          </div>
+          <div class="world-map rounded-2xl border border-slate-700/70 min-h-[280px] relative overflow-hidden">
+            <span class="node absolute left-[24%] top-[38%] h-3 w-3 rounded-full bg-blue-500"></span>
+            <span class="node absolute left-[45%] top-[30%] h-3 w-3 rounded-full bg-blue-500"></span>
+            <span class="node absolute left-[62%] top-[48%] h-3 w-3 rounded-full bg-blue-500"></span>
+            <span class="node absolute left-[72%] top-[36%] h-3 w-3 rounded-full bg-blue-500"></span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="border-t border-slate-800 py-10">
+      <div class="max-w-7xl mx-auto px-6 lg:px-10 grid gap-8 md:grid-cols-3 items-center text-sm">
+        <div class="flex items-center gap-3 text-slate-300">
+          <span class="text-lg">🛡️</span>
+          <p>© 2026 Northern Armor. All Rights Reserved.</p>
+        </div>
+        <div class="flex flex-wrap items-center gap-4 md:justify-center text-slate-300">
+          <a href="#" class="hover:text-blue-300 linear-motion duration-200">Privacy Policy</a>
+          <a href="#" class="hover:text-blue-300 linear-motion duration-200">Terms of Service</a>
+          <a href="#" class="hover:text-blue-300 linear-motion duration-200">Support</a>
+        </div>
+        <div class="flex items-center gap-4 md:justify-end text-slate-300">
+          <a href="#" class="hover:text-blue-300 linear-motion duration-200">YouTube</a>
+          <a href="#" class="hover:text-blue-300 linear-motion duration-200">Instagram</a>
         </div>
       </div>
-    </section>
+    </footer>
   </body>
 </html>
