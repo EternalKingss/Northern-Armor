@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8" /></head>
+<script>
+  // Handle Stripe return URLs and general SPA routing on GitHub Pages.
+  // GitHub Pages serves this file for any path it can't find.
+  var path = window.location.pathname;
+
+  if (path === '/subscription/success' || path.endsWith('/subscription/success')) {
+    window.location.replace('/?payment=success');
+  } else if (
+    path === '/subscription/cancel' ||
+    path.endsWith('/subscription/cancel') ||
+    path === '/subscription/cancelled' ||
+    path.endsWith('/subscription/cancelled')
+  ) {
+    window.location.replace('/?payment=cancelled');
+  } else {
+    // Generic SPA fallback — send everything else to the root app.
+    var search = window.location.search;
+    var hash = window.location.hash;
+    window.location.replace('/' + search + hash);
+  }
+</script>
+</html>

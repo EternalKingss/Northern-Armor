@@ -1,0 +1,100 @@
+@import './mobile.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(13, 17, 23, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(31, 111, 235, 0.5);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(31, 111, 235, 0.8);
+}
+
+body {
+  @apply antialiased;
+  background-color: #0d1117;
+  color: #f0f6fc;
+  font-family: 'Inter Tight', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.glass {
+  @apply backdrop-blur-md border rounded-tactical;
+  background: rgba(48, 54, 61, 0.2);
+  border-color: #30363d;
+}
+
+.glass-dark {
+  @apply backdrop-blur-lg border rounded-tactical;
+  background: rgba(13, 17, 23, 0.6);
+  border-color: #30363d;
+}
+
+.glass-dark-lg {
+  @apply backdrop-blur-xl border;
+  background: rgba(13, 17, 23, 0.8);
+  border-color: #30363d;
+  border-radius: 6px;
+}
+
+.glow-tactical {
+  box-shadow: 0 0 20px rgba(31, 111, 235, 0.4);
+}
+
+.glow-teal {
+  box-shadow: 0 0 20px rgba(20, 184, 166, 0.4);
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent;
+}
+
+.btn-base {
+  @apply px-4 py-2 font-medium transition-all duration-300 ease-in-out tracking-wide;
+  border-radius: 6px;
+}
+
+.btn-primary {
+  @apply btn-base text-white shadow-lg;
+  background: linear-gradient(180deg, #2563eb 0%, #1f6feb 100%);
+  box-shadow: 0 4px 16px rgba(31, 111, 235, 0.3);
+}
+
+.btn-secondary {
+  @apply btn-base text-white border;
+  background: rgba(48, 54, 61, 0.4);
+  border-color: #30363d;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 1000px 100%;
+}
